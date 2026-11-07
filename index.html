@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afreen Nagardinni | Python Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Afreen Nagardinni, Python Full-Stack Developer skilled in Flask, Django, REST APIs, SQL and AI multi-agent apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f0f7; --text:#1f1b3a; --muted:#6b6786;
+  --accent:#7c3aed; --accent2:#a78bfa;
+  --sd:#d3d0e3; --sl:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#16141f;--text:#f3efe6;--muted:#a39fb3;--accent:#ffc24b;--accent2:#ff9f5a;--sd:#0d0c14;--sl:#201d2e}
+}
+:root[data-theme="dark"]{--bg:#16141f;--text:#f3efe6;--muted:#a39fb3;--accent:#ffc24b;--accent2:#ff9f5a;--sd:#0d0c14;--sl:#201d2e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6;transition:background .4s,color .4s;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:70px 0}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:34px}
+h2 span{color:var(--accent)}
+
+/* neumorphism */
+.raised{background:var(--bg);border-radius:24px;box-shadow:9px 9px 18px var(--sd),-9px -9px 18px var(--sl);transition:transform .35s,box-shadow .35s,background .4s}
+.inset{background:var(--bg);box-shadow:inset 5px 5px 10px var(--sd),inset -5px -5px 10px var(--sl)}
+.card{padding:28px}
+.card:hover{transform:translateY(-6px);box-shadow:13px 13px 26px var(--sd),-13px -13px 26px var(--sl)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border:0;border-radius:50px;background:var(--bg);color:var(--text);font:inherit;font-weight:700;cursor:pointer;box-shadow:6px 6px 12px var(--sd),-6px -6px 12px var(--sl);transition:transform .25s,box-shadow .25s,color .25s}
+.btn:hover{transform:translateY(-3px);color:var(--accent)}
+.btn:active{transform:translateY(0);box-shadow:inset 4px 4px 8px var(--sd),inset -4px -4px 8px var(--sl)}
+.btn.primary{color:var(--accent)}
+.chip{display:inline-block;padding:6px 14px;margin:4px 4px 0 0;border-radius:30px;font-size:.8rem;font-weight:600;color:var(--accent2);transition:transform .25s,color .25s}
+.chip:hover{transform:translateY(-2px);color:var(--accent)}
+
+/* nav */
+nav{position:sticky;top:14px;z-index:20;margin:14px auto 0;max-width:1080px;padding:0 22px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px 10px 24px;border-radius:50px}
+.logo{font-weight:800;font-size:1.1rem}.logo b{color:var(--accent)}
+.links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{padding:8px 15px;border-radius:30px;font-size:.88rem;font-weight:600;color:var(--muted);white-space:nowrap;transition:all .25s}
+.links a:hover,.links a.on{color:var(--accent);box-shadow:inset 3px 3px 6px var(--sd),inset -3px -3px 6px var(--sl)}
+#theme{width:42px;height:42px;padding:0;justify-content:center;flex:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;min-height:78vh}
+.tag{display:inline-block;padding:7px 18px;border-radius:30px;font-size:.82rem;font-weight:700;color:var(--accent2);margin-bottom:18px}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.1;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.role{font-size:1.25rem;font-weight:600;color:var(--accent2);margin:14px 0;min-height:2em}
+.role::after{content:"|";margin-left:3px;animation:blink 1s steps(1) infinite;color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{color:var(--muted);max-width:520px;margin-bottom:28px}
+.cta{display:flex;flex-wrap:wrap;gap:16px}
+.avatar-wrap{display:grid;place-items:center}
+.avatar{width:min(300px,70vw);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;position:relative;animation:float 6s ease-in-out infinite;box-shadow:16px 16px 32px var(--sd),-16px -16px 32px var(--sl)}
+.avatar::before{content:"";position:absolute;inset:18px;border-radius:50%;background:conic-gradient(from 0deg,var(--accent),var(--accent2),var(--accent));animation:spin 10s linear infinite;opacity:.9}
+.avatar::after{content:"";position:absolute;inset:30px;border-radius:50%;background:var(--bg);box-shadow:inset 8px 8px 16px var(--sd),inset -8px -8px 16px var(--sl)}
+.avatar span{position:relative;z-index:2;font-size:4.2rem;font-weight:800;color:var(--text)}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* grids */
+.grid{display:grid;gap:26px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about p{color:var(--muted);margin-bottom:12px}
+.stat{text-align:center}.stat b{display:block;font-size:2rem;color:var(--accent)}.stat small{color:var(--muted);font-weight:600}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stats .raised{padding:20px 10px}
+.skill h3{font-size:1rem;margin-bottom:10px;color:var(--accent2)}
+.proj h3{font-size:1.2rem;margin-bottom:8px}
+.proj p{color:var(--muted);font-size:.93rem;margin-bottom:10px}
+.proj ul{color:var(--muted);font-size:.9rem;padding-left:18px;margin-bottom:14px}
+.proj .btn{padding:9px 20px;font-size:.85rem;margin-top:10px}
+.proj .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.num{font-size:.8rem;font-weight:800;color:var(--accent)}
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:4px;border-radius:4px;box-shadow:inset 2px 2px 4px var(--sd),inset -2px -2px 4px var(--sl)}
+.tl .item{position:relative;margin-bottom:24px}
+.tl .item::before{content:"";position:absolute;left:-31px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg),0 0 0 7px var(--accent2)}
+.tl h3{font-size:1.1rem}.tl .when{font-size:.8rem;font-weight:700;color:var(--accent2)}
+.tl ul{color:var(--muted);font-size:.92rem;padding-left:18px;margin-top:8px}
+.contact a.raised{display:flex;align-items:center;gap:14px;padding:20px 24px;font-weight:600;word-break:break-word}
+.contact a.raised:hover{transform:translateY(-5px);color:var(--accent)}
+.contact i{font-style:normal;font-size:1.4rem}
+footer{text-align:center;padding:40px 0 50px;color:var(--muted);font-size:.88rem}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}.js .rv.d3{transition-delay:.3s}
+
+@media(max-width:820px){
+  .hero,.about,.g2,.g3{grid-template-columns:1fr}
+  .hero{text-align:center;min-height:auto;padding-top:30px}
+  .hero p.lead{margin-inline:auto}.cta{justify-content:center}
+  .avatar-wrap{order:-1}
+  .logo{display:none}.bar{padding-left:14px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<nav><div class="bar raised">
+  <a class="logo" href="#home">Afreen<b>.</b>dev</a>
+  <div class="links">
+    <a href="#home" class="on">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </div>
+  <button id="theme" class="btn" aria-label="Toggle dark mode">🌙</button>
+</div></nav>
+
+<main class="wrap">
+
+<section id="home" class="hero">
+  <div class="rv">
+    <span class="tag inset">Open to entry-level roles</span>
+    <h1>Hi, I’m <em>Afreen Nagardinni</em></h1>
+    <div class="role" id="role"></div>
+    <p class="lead">Computer Science graduate (2026) who builds backend applications with Python, Flask and Django, and ships AI multi-agent apps that run live on the web.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View Projects ↓</a>
+      <a class="btn" href="Afreen_Nagardinni_Resume.pdf" download>Download Resume</a>
+    </div>
+  </div>
+  <div class="avatar-wrap rv d2"><div class="avatar"><span>AN</span></div></div>
+</section>
+
+<section id="about">
+  <h2 class="rv">About <span>Me</span></h2>
+  <div class="about">
+    <div class="raised card rv">
+      <p>I’m a Computer Science Engineering graduate from SECAB Institute of Engineering &amp; Technology, Vijayapura. I enjoy turning ideas into working products: clean backends, simple APIs and interfaces that feel good to use.</p>
+      <p>During my internship at Tech Fortune Technologies I built Flask/Django features, REST APIs, authentication and database workflows, and learned to debug and review code in a team.</p>
+      <p>Lately I build AI multi-agent applications, and every project here is deployed with a live demo.</p>
+    </div>
+    <div class="stats rv d1">
+      <div class="raised stat"><b>4</b><small>Live projects</small></div>
+      <div class="raised stat"><b>5</b><small>AI agents built</small></div>
+      <div class="raised stat"><b>4 mo</b><small>Internship</small></div>
+      <div class="raised stat"><b>2026</b><small>B.E. graduate</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="rv">Technical <span>Skills</span></h2>
+  <div class="grid g3">
+    <div class="raised card skill rv"><h3>Languages</h3>
+      <span class="chip inset">Python</span><span class="chip inset">SQL</span><span class="chip inset">JavaScript</span><span class="chip inset">TypeScript</span><span class="chip inset">HTML</span><span class="chip inset">CSS</span></div>
+    <div class="raised card skill rv d1"><h3>Frameworks &amp; Backend</h3>
+      <span class="chip inset">Flask</span><span class="chip inset">Django</span><span class="chip inset">React</span><span class="chip inset">REST APIs</span><span class="chip inset">SQLAlchemy</span><span class="chip inset">Tailwind CSS</span><span class="chip inset">Chart.js</span></div>
+    <div class="raised card skill rv d2"><h3>Databases</h3>
+      <span class="chip inset">SQLite</span><span class="chip inset">MySQL</span><span class="chip inset">MongoDB</span></div>
+    <div class="raised card skill rv"><h3>AI</h3>
+      <span class="chip inset">LLM APIs</span><span class="chip inset">Multi-Agent Systems</span><span class="chip inset">RAG</span></div>
+    <div class="raised card skill rv d1"><h3>Tools</h3>
+      <span class="chip inset">Git</span><span class="chip inset">GitHub</span><span class="chip inset">pytest</span><span class="chip inset">Render</span><span class="chip inset">VS Code</span><span class="chip inset">PyCharm</span></div>
+    <div class="raised card skill rv d2"><h3>Concepts</h3>
+      <span class="chip inset">OOP</span><span class="chip inset">DSA</span><span class="chip inset">CRUD</span><span class="chip inset">Debugging</span><span class="chip inset">Software Testing</span></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="rv">Featured <span>Projects</span></h2>
+  <div class="grid g2">
+    <article class="raised card proj rv">
+      <div class="top"><h3>Insight Atlas</h3><span class="num">01 · AI</span></div>
+      <p>Multi-agent research platform where a Planner, Searcher, Reader, Critic and Writer collaborate to produce cited reports.</p>
+      <ul><li>Confidence scoring, debate analysis, report comparison, PDF export</li><li>Token and cost tracking per query</li><li>Auth, history, bookmarks, 7 pytest tests</li></ul>
+      <span class="chip inset">Flask</span><span class="chip inset">SQLAlchemy</span><span class="chip inset">SQLite</span><span class="chip inset">LLM API</span><span class="chip inset">Tailwind CSS</span><br>
+      <a class="btn primary" href="https://multi-agent-researcher-lkvj.onrender.com" target="_blank" rel="noopener">Live Demo ↗</a>
+    </article>
+    <article class="raised card proj rv d1">
+      <div class="top"><h3>Career DNA</h3><span class="num">02 · AI</span></div>
+      <p>AI career intelligence platform that analyzes assessment results and recommends ranked career paths.</p>
+      <ul><li>Authentication, assessments, results processing and dashboard</li><li>Multi-agent AI with a RAG pipeline on SQLite</li></ul>
+      <span class="chip inset">Flask</span><span class="chip inset">SQLite</span><span class="chip inset">Multi-Agent AI</span><span class="chip inset">RAG</span><br>
+      <a class="btn primary" href="https://career-dna-2.onrender.com" target="_blank" rel="noopener">Live Demo ↗</a>
+    </article>
+    <article class="raised card proj rv">
+      <div class="top"><h3>FinPulse</h3><span class="num">03 · Frontend</span></div>
+      <p>Personal finance dashboard with glassmorphism and claymorphism design.</p>
+      <ul><li>Transaction CRUD, multi-filter search, CSV import/export</li><li>Chart.js cashflow charts, budget alerts, EMI simulator, savings goals, 7 currencies</li></ul>
+      <span class="chip inset">React</span><span class="chip inset">TypeScript</span><span class="chip inset">Tailwind CSS</span><span class="chip inset">Chart.js</span><span class="chip inset">Vite</span><br>
+      <a class="btn primary" href="https://personal-finance-dashboard-isse.onrender.com" target="_blank" rel="noopener">Live Demo ↗</a>
+    </article>
+    <article class="raised card proj rv d1">
+      <div class="top"><h3>Employee Management</h3><span class="num">04 · Full-Stack</span></div>
+      <p>Neumorphism dashboard to manage employees, departments and payroll.</p>
+      <ul><li>CRUD, search, department and status filters, list and grid views</li><li>CSV export and dark mode</li></ul>
+      <span class="chip inset">Flask</span><span class="chip inset">SQLite</span><span class="chip inset">HTML</span><span class="chip inset">CSS</span><span class="chip inset">Tailwind CSS</span><br>
+      <a class="btn primary" href="https://employeemanagementsystem-7l3e.onrender.com" target="_blank" rel="noopener">Live Demo ↗</a>
+    </article>
+  </div>
+  <p class="rv" style="margin-top:22px;color:var(--muted);font-size:.85rem">Demos run on a free host, so the first load can take a few seconds to wake up.</p>
+</section>
+
+<section id="experience">
+  <h2 class="rv">Experience &amp; <span>Education</span></h2>
+  <div class="tl">
+    <div class="item raised card rv">
+      <span class="when">FEB 2026 – MAY 2026</span>
+      <h3>Python Full-Stack Developer Intern · Tech Fortune Technologies</h3>
+      <ul><li>Built web features with Python, Flask/Django, HTML, CSS, SQL and SQLite</li><li>Implemented CRUD operations, authentication and database integration</li><li>Developed REST APIs connecting the frontend with databases</li><li>Debugged errors, used Git/GitHub and acted on trainer reviews</li></ul>
+    </div>
+    <div class="item raised card rv d1">
+      <span class="when">2023 – 2026</span>
+      <h3>B.E. Computer Science Engineering</h3>
+      <ul><li>SECAB Institute of Engineering &amp; Technology, Vijayapura</li></ul>
+    </div>
+    <div class="item raised card rv d2">
+      <span class="when">2020 – 2023</span>
+      <h3>Diploma, Computer Science Engineering</h3>
+      <ul><li>Malik Sandal Polytechnic, Vijayapura</li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="rv">Let’s <span>Connect</span></h2>
+  <div class="grid g2">
+    <a class="raised rv" href="mailto:afreen.n.nagardinni@gmail.com"><i>✉️</i>afreen.n.nagardinni@gmail.com</a>
+    <a class="raised rv d1" href="tel:+917892094280"><i>📞</i>+91 7892094280</a>
+    <a class="raised rv" href="https://www.linkedin.com/in/afreennagardinni" target="_blank" rel="noopener"><i>💼</i>linkedin.com/in/afreennagardinni</a>
+    <a class="raised rv d1" href="https://github.com/afreennagardinni" target="_blank" rel="noopener"><i>💻</i>github.com/afreennagardinni</a>
+    <div class="raised rv" style="grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:20px 24px;font-weight:600"><i style="font-style:normal;font-size:1.4rem">📍</i>Bengaluru, Karnataka, India</div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="yr">2026</span> Afreen Nagardinni</footer>
+
+<script>
+// theme toggle
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function paint(){var d=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);btn.textContent=d?'☀️':'🌙';}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  paint();
+  btn.addEventListener('click',function(){
+    var d=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var n=d?'light':'dark';root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n)}catch(e){}paint();
+  });
+})();
+
+// typing roles
+(function(){
+  var roles=['Python Full-Stack Developer','Flask & Django Backend Builder','AI Multi-Agent App Developer'],
+      el=document.getElementById('role'),r=0,c=0,del=false;
+  function tick(){
+    var t=roles[r];
+    el.textContent=t.slice(0,c);
+    if(!del&&c===t.length){del=true;return setTimeout(tick,1600)}
+    if(del&&c===0){del=false;r=(r+1)%roles.length}
+    c+=del?-1:1;
+    setTimeout(tick,del?35:70);
+  }
+  tick();
+})();
+
+// scroll reveal + active nav
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+  var links=document.querySelectorAll('.links a'),secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute('href'))});
+  var so=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+x.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){if(s)so.observe(s)});
+})();
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
